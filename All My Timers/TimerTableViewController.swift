@@ -9,29 +9,29 @@ import UIKit
 
 class TimerTableViewController: UITableViewController {
 
+    let dummyData = [
+        "Watch Ted Lasso",
+        "Go to the coffee shop",
+        "Work on my coding assignment"
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
+        tableView.register(UINib(nibName: "TimerCell", bundle: Bundle.main), forCellReuseIdentifier: "timerCell")
         
-        return 1
     }
-
+    
+    // MARK: - Table view data source
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 4
+        return dummyData.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-        cell.backgroundColor = .darkGray
+        let cell = tableView.dequeueReusableCell(withIdentifier: "timerCell", for: indexPath) as! TimerTableViewCell
+        cell.label.text = dummyData[indexPath.row]
         
         return cell
     }
-
 }

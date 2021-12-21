@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B2556342770047F00189129 /* TimerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B2556332770047F00189129 /* TimerCell.xib */; };
+		5B255636277004B100189129 /* TimerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B255635277004B100189129 /* TimerTableViewCell.swift */; };
 		AB1535BD276AE34100BB66FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1535BC276AE34100BB66FF /* AppDelegate.swift */; };
 		AB1535BF276AE34100BB66FF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1535BE276AE34100BB66FF /* SceneDelegate.swift */; };
 		AB1535C1276AE34100BB66FF /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1535C0276AE34100BB66FF /* TimerViewController.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B2556332770047F00189129 /* TimerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimerCell.xib; sourceTree = "<group>"; };
+		5B255635277004B100189129 /* TimerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerTableViewCell.swift; sourceTree = "<group>"; };
 		AB1535B9276AE34100BB66FF /* All My Timers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "All My Timers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB1535BC276AE34100BB66FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB1535BE276AE34100BB66FF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +65,8 @@
 			isa = PBXGroup;
 			children = (
 				AB1535D4276C271400BB66FF /* TimerTableViewController.swift */,
+				5B2556332770047F00189129 /* TimerCell.xib */,
+				5B255635277004B100189129 /* TimerTableViewCell.swift */,
 				AB1535BC276AE34100BB66FF /* AppDelegate.swift */,
 				AB1535BE276AE34100BB66FF /* SceneDelegate.swift */,
 				AB1535C0276AE34100BB66FF /* TimerViewController.swift */,
@@ -133,6 +139,7 @@
 				AB1535C9276AE34200BB66FF /* LaunchScreen.storyboard in Resources */,
 				AB1535C6276AE34200BB66FF /* Assets.xcassets in Resources */,
 				AB1535C4276AE34100BB66FF /* Main.storyboard in Resources */,
+				5B2556342770047F00189129 /* TimerCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +155,7 @@
 				AB1535BD276AE34100BB66FF /* AppDelegate.swift in Sources */,
 				AB1535D5276C271400BB66FF /* TimerTableViewController.swift in Sources */,
 				AB1535BF276AE34100BB66FF /* SceneDelegate.swift in Sources */,
+				5B255636277004B100189129 /* TimerTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +305,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HR6QSUNJLY;
 				INFOPLIST_FILE = "All My Timers/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -316,6 +325,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HR6QSUNJLY;
 				INFOPLIST_FILE = "All My Timers/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

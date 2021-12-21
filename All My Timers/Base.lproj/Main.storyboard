@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xDn-5C-juY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xDn-5C-juY">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Times-->
+        <!--Stats-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ReportViewController" customModule="All_My_Timers" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,27 +18,40 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="View Times" image="magnifyingglass.circle" catalog="system" id="kic-gF-OWt"/>
+                    <tabBarItem key="tabBarItem" title="Stats" image="magnifyingglass.circle" catalog="system" id="kic-gF-OWt"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1275" y="-100"/>
         </scene>
-        <!--Track-->
-        <scene sceneID="6f7-tc-gk8">
+        <!--Timers-->
+        <scene sceneID="IZk-2p-QRE">
             <objects>
-                <viewController id="T5d-ro-H6h" customClass="TimerViewController" customModule="All_My_Timers" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="46Y-pU-D38">
+                <tableViewController id="Rvn-ZR-rau" customClass="TimerTableViewController" customModule="All_My_Timers" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="SCS-VU-rP5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="foa-yM-CIq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Track" image="timer" catalog="system" id="EUO-7b-Cns"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DtY-iD-rZc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="SUl-el-zlR">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SUl-el-zlR" id="8FM-tm-ghr">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Rvn-ZR-rau" id="lbN-LU-feC"/>
+                            <outlet property="delegate" destination="Rvn-ZR-rau" id="bUq-Cz-RWl"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Timers" image="timer" catalog="system" id="ReI-ob-33g"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I3s-qb-4vn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1274" y="597"/>
+            <point key="canvasLocation" x="1280" y="607"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="wgW-Ws-zmz">
@@ -46,12 +59,13 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="xDn-5C-juY" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ErD-ft-2zN">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Zfl-nP-LGv"/>
-                        <segue destination="T5d-ro-H6h" kind="relationship" relationship="viewControllers" id="tlo-bX-aa8"/>
+                        <segue destination="Rvn-ZR-rau" kind="relationship" relationship="viewControllers" id="K3e-xU-Hvx"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q2U-ud-tVt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
