@@ -25,6 +25,7 @@ class CollectionViewController: UICollectionViewController {
         
         title = "Tasks"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAdd))
+        navigationItem.leftBarButtonItem = editButtonItem
         
         collectionView.backgroundColor = ColorScheme.viewBackground
         collectionView.register(UINib(nibName: "CollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: reuseIdentifier)
@@ -63,6 +64,12 @@ class CollectionViewController: UICollectionViewController {
         save()
         let indexPath = IndexPath(row: 0, section: 0)
         collectionView.insertItems(at: [indexPath])
+    }
+    
+    private func deleteCell(from indexPath: IndexPath) {
+        timers.remove(at: indexPath.row)
+        collectionView.deleteItems(at: [indexPath])
+        save()
     }
     
     // MARK: User Default CRUD
@@ -109,6 +116,12 @@ class CollectionViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDelegate
 
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if isEditing {
+            deleteCell(from: indexPath)
+        }
+    }
+    
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking
     override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
