@@ -23,7 +23,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mV9-eh-gGF">
+                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mV9-eh-gGF">
                         <rect key="frame" x="19" y="122" width="164" height="52.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="164" id="oqM-PU-YyP"/>
@@ -47,9 +47,9 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="mV9-eh-gGF" firstAttribute="top" secondItem="Rfb-7Z-vyA" secondAttribute="bottom" constant="34.5" id="ZSh-Vu-zum"/>
+                    <constraint firstItem="mV9-eh-gGF" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Rfb-7Z-vyA" secondAttribute="bottom" constant="34.5" id="ZSh-Vu-zum"/>
                     <constraint firstItem="3ry-Ip-E8P" firstAttribute="centerX" secondItem="oNp-dm-NcV" secondAttribute="centerX" id="bEq-KP-DCa"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="mV9-eh-gGF" secondAttribute="bottom" constant="10" id="cDn-c0-F33"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="mV9-eh-gGF" secondAttribute="bottom" constant="4" id="cDn-c0-F33"/>
                     <constraint firstItem="Rfb-7Z-vyA" firstAttribute="centerX" secondItem="oNp-dm-NcV" secondAttribute="centerX" id="cXv-cH-A2V"/>
                     <constraint firstItem="mV9-eh-gGF" firstAttribute="centerX" secondItem="oNp-dm-NcV" secondAttribute="centerX" id="lRi-5Q-wdS"/>
                     <constraint firstItem="3ry-Ip-E8P" firstAttribute="top" secondItem="oNp-dm-NcV" secondAttribute="top" constant="9" id="ruE-Ar-MON"/>
