@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,35 +25,6 @@
             </objects>
             <point key="canvasLocation" x="1275" y="-100"/>
         </scene>
-        <!--Timers-->
-        <scene sceneID="IZk-2p-QRE">
-            <objects>
-                <tableViewController id="Rvn-ZR-rau" customClass="TimerTableViewController" customModule="All_My_Timers" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="SCS-VU-rP5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="SUl-el-zlR">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SUl-el-zlR" id="8FM-tm-ghr">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Rvn-ZR-rau" id="lbN-LU-feC"/>
-                            <outlet property="delegate" destination="Rvn-ZR-rau" id="bUq-Cz-RWl"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Timers" image="timer" catalog="system" id="ReI-ob-33g"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="I3s-qb-4vn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1280" y="607"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="wgW-Ws-zmz">
             <objects>
@@ -65,12 +37,47 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Zfl-nP-LGv"/>
-                        <segue destination="Rvn-ZR-rau" kind="relationship" relationship="viewControllers" id="K3e-xU-Hvx"/>
+                        <segue destination="7dT-eI-TkL" kind="relationship" relationship="viewControllers" id="6pc-KQ-N87"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q2U-ud-tVt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-41" y="240"/>
+        </scene>
+        <!--Timers-->
+        <scene sceneID="qXS-KJ-q13">
+            <objects>
+                <collectionViewController id="7dT-eI-TkL" customClass="CollectionViewController" customModule="All_My_Timers" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="UHj-0m-6U6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bxe-zQ-Lts">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="5m8-9D-2m9">
+                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="P1k-4z-cig">
+                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionViewCellContentView>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="7dT-eI-TkL" id="wKN-1r-v5x"/>
+                            <outlet property="delegate" destination="7dT-eI-TkL" id="xbI-4D-9Sf"/>
+                        </connections>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" title="Timers" image="timer" catalog="system" id="FD0-yb-Leb"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lt5-TE-Zcl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1274" y="656"/>
         </scene>
     </scenes>
     <resources>
