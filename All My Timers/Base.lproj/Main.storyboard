@@ -37,14 +37,14 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Zfl-nP-LGv"/>
-                        <segue destination="7dT-eI-TkL" kind="relationship" relationship="viewControllers" id="6pc-KQ-N87"/>
+                        <segue destination="0kk-F9-9st" kind="relationship" relationship="viewControllers" id="6pc-KQ-N87"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q2U-ud-tVt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-41" y="240"/>
         </scene>
-        <!--Timers-->
+        <!--Collection View Controller-->
         <scene sceneID="qXS-KJ-q13">
             <objects>
                 <collectionViewController id="7dT-eI-TkL" customClass="CollectionViewController" customModule="All_My_Timers" customModuleProvider="target" sceneMemberID="viewController">
@@ -73,11 +73,30 @@
                             <outlet property="delegate" destination="7dT-eI-TkL" id="xbI-4D-9Sf"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Timers" image="timer" catalog="system" id="FD0-yb-Leb"/>
+                    <navigationItem key="navigationItem" id="Uh8-HE-Ywv"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lt5-TE-Zcl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1274" y="656"/>
+            <point key="canvasLocation" x="2184.057971014493" y="655.58035714285711"/>
+        </scene>
+        <!--Timers-->
+        <scene sceneID="DQv-AE-ULB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0kk-F9-9st" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Timers" image="timer" catalog="system" id="FD0-yb-Leb"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xh0-df-Yk4">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7dT-eI-TkL" kind="relationship" relationship="rootViewController" id="DbU-Bf-gV7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bac-Yg-JZA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1273.913043478261" y="655.58035714285711"/>
         </scene>
     </scenes>
     <resources>

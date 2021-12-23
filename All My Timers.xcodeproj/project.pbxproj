@@ -13,6 +13,7 @@
 		5B03080E2772C2AA001C7DAD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B03080D2772C2AA001C7DAD /* Constants.swift */; };
 		5B0308102772C3B7001C7DAD /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B03080F2772C3B7001C7DAD /* CollectionViewCell.swift */; };
 		5B0308122772D05D001C7DAD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0308112772D05D001C7DAD /* Extensions.swift */; };
+		5B10CFFD277524F200C9D748 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B10CFFC277524F200C9D748 /* Task.swift */; };
 		AB1535BD276AE34100BB66FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1535BC276AE34100BB66FF /* AppDelegate.swift */; };
 		AB1535BF276AE34100BB66FF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1535BE276AE34100BB66FF /* SceneDelegate.swift */; };
 		AB1535C4276AE34100BB66FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB1535C2276AE34100BB66FF /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 		5B03080D2772C2AA001C7DAD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5B03080F2772C3B7001C7DAD /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		5B0308112772D05D001C7DAD /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		5B10CFFC277524F200C9D748 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		AB1535B9276AE34100BB66FF /* All My Timers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "All My Timers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB1535BC276AE34100BB66FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB1535BE276AE34100BB66FF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				AB1535C2276AE34100BB66FF /* Main.storyboard */,
 				5B0308092772B4CD001C7DAD /* ColumnFlowLayout.swift */,
 				5B0308072772B1FA001C7DAD /* CollectionViewController.swift */,
+				5B10CFFC277524F200C9D748 /* Task.swift */,
 				5B03080B2772BAE0001C7DAD /* CollectionViewCell.xib */,
 				5B03080F2772C3B7001C7DAD /* CollectionViewCell.swift */,
 				5B0308112772D05D001C7DAD /* Extensions.swift */,
@@ -163,6 +166,7 @@
 				5B03080A2772B4CD001C7DAD /* ColumnFlowLayout.swift in Sources */,
 				AB1535BF276AE34100BB66FF /* SceneDelegate.swift in Sources */,
 				5B0308122772D05D001C7DAD /* Extensions.swift in Sources */,
+				5B10CFFD277524F200C9D748 /* Task.swift in Sources */,
 				5B03080E2772C2AA001C7DAD /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

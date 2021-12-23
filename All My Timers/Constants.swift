@@ -16,3 +16,7 @@ enum ColorScheme {
     static let stopButton = UIColor.red
     static let shadowColor = UIColor.black
 }
+
+enum CRUD {
+    static let tasksKey = "SavedTasks"
+}

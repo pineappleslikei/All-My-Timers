@@ -1,6 +1,12 @@
 # READ ME
-The goal is to allow users to save and reuse common timers they may set. A side effect is that we can provide lite metrics on what tasks they timed.
+The goal is to allow users to track how long they spend on certain tasks. Below is the current UI for the Tasks view.
 
-Please enjoy this crudely sketched design. You're looking at a tab bar style navigation controller where "View" is a user's metrics and "Track" is a view of all the users timers.
+---
 
-![timer drawing](roughDesign.png)
+## Points of Interest
+- timers/tracking are not functional yet
+- to delete a task, tap "Edit" and then the task you want to delete (this is not the final design, but the current functionality)
+---
+
+<img src="metrics.jpeg" width=200>
+<img src="ui_v1.jpeg" width=200>
