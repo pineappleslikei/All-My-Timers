@@ -21,7 +21,9 @@ class CollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Timers"
+        load()
+        
+        title = "Tasks"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAdd))
         
         collectionView.backgroundColor = ColorScheme.viewBackground
@@ -42,6 +44,10 @@ class CollectionViewController: UICollectionViewController {
         ac.addAction(UIAlertAction(title: "Add", style: .default, handler: { _ in
             guard let textFields = ac.textFields else { return }
             guard let name = textFields[0].text else { return }
+            if name == ""  {
+                print("No Task name was provided")
+                return
+            }
             if let description = textFields[1].text {
                 self.insertCellAtTop(name: name, description: description)
             } else {
@@ -54,8 +60,28 @@ class CollectionViewController: UICollectionViewController {
     
     private func insertCellAtTop(name: String, description: String) {
         timers.insert(Task(name: name, description: description), at: 0)
+        save()
         let indexPath = IndexPath(row: 0, section: 0)
         collectionView.insertItems(at: [indexPath])
+    }
+    
+    // MARK: User Default CRUD
+    
+    private func save() {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(timers) {
+            let defaults = UserDefaults.standard
+            defaults.set(encoded, forKey: CRUD.tasksKey)
+        }
+    }
+    
+    private func load() {
+        if let savedTasks = UserDefaults.standard.object(forKey: CRUD.tasksKey) as? Data {
+            let decoder = JSONDecoder()
+            if let loadedTasks = try? decoder.decode([Task].self, from: savedTasks) {
+                timers = loadedTasks
+            }
+        }
     }
     
     // MARK: UICollectionViewDataSource
