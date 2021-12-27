@@ -13,6 +13,7 @@ enum ColorScheme {
     static let cellBackground1 = UIColor(r: 50, g: 195, b: 179)
     static let cellBackground2 = UIColor(r: 83, g: 175, b: 217)
     static let playButton = UIColor(r: 0, g: 18, b: 25)
+    static let pauseButton = UIColor(r: 238, g: 155, b: 0)
     static let stopButton = UIColor.red
     static let shadowColor = UIColor.black
 }

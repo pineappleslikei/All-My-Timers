@@ -10,7 +10,7 @@ import Foundation
 class Task: Codable {
     var name: String
     var description: String
-    var taskEntries: [TaskEntry]?
+    var taskEntries = [TaskEntry]()
     
     init(name: String, description: String) {
         self.name = name
@@ -18,7 +18,12 @@ class Task: Codable {
     }
 }
 
-struct TaskEntry: Codable {
-    var start: String
-    var end: String
+class TaskEntry: Codable {
+    var startDate: TimeInterval
+    var duration: Int
+    
+    init(startDate: TimeInterval, durationInSeconds: Int) {
+        self.startDate = startDate
+        self.duration = durationInSeconds
+    }
 }

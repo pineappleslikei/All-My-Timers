@@ -9,9 +9,9 @@ import UIKit
 
 
 
-class CollectionViewController: UICollectionViewController {
+class CollectionViewController: UICollectionViewController, TaskCellDelegate {
 
-    var timers = [Task]()
+    var tasks = [Task]()
     
     private let reuseIdentifier = "Cell"
     let columnLayout = ColumnFlowLayout (cellsPerRow: 2, minimumInteritemSpacing: 10, minimumLineSpacing: 10, sectionInset: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
@@ -21,7 +21,7 @@ class CollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        load()
+        loadSavedUserData()
         
         title = "Tasks"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAdd))
@@ -60,33 +60,33 @@ class CollectionViewController: UICollectionViewController {
     }
     
     private func insertCellAtTop(name: String, description: String) {
-        timers.insert(Task(name: name, description: description), at: 0)
-        save()
+        tasks.insert(Task(name: name, description: description), at: 0)
+        saveUserData()
         let indexPath = IndexPath(row: 0, section: 0)
         collectionView.insertItems(at: [indexPath])
     }
     
     private func deleteCell(from indexPath: IndexPath) {
-        timers.remove(at: indexPath.row)
+        tasks.remove(at: indexPath.row)
         collectionView.deleteItems(at: [indexPath])
-        save()
+        saveUserData()
     }
     
     // MARK: User Default CRUD
     
-    private func save() {
+    private func saveUserData() {
         let encoder = JSONEncoder()
-        if let encoded = try? encoder.encode(timers) {
+        if let encoded = try? encoder.encode(tasks) {
             let defaults = UserDefaults.standard
             defaults.set(encoded, forKey: CRUD.tasksKey)
         }
     }
     
-    private func load() {
+    private func loadSavedUserData() {
         if let savedTasks = UserDefaults.standard.object(forKey: CRUD.tasksKey) as? Data {
             let decoder = JSONDecoder()
             if let loadedTasks = try? decoder.decode([Task].self, from: savedTasks) {
-                timers = loadedTasks
+                tasks = loadedTasks
             }
         }
     }
@@ -101,17 +101,26 @@ class CollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return timers.count
+        return tasks.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CollectionViewCell
         
-        let timer = timers[indexPath.row]
-        cell.name = timer.name
-        cell.descriptionText = timer.description
+        let task = tasks[indexPath.row]
+        cell.configModel(taskModel: task)
+        cell.delegate = self
         
         return cell
+    }
+    
+    // MARK: TaskCellDelegate
+    
+    func saveModel(for cell: CollectionViewCell, model: Task) {
+        guard let indexPath = self.collectionView.indexPath(for: cell) else { return }
+        tasks[indexPath.row] = model
+        
+        saveUserData()
     }
 
     // MARK: UICollectionViewDelegate
