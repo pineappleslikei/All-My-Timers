@@ -19,7 +19,28 @@ class CollectionViewCell: UICollectionViewCell, TaskTimerDelegate {
             descriptionLabel.text = descriptionText
         }
     }
-    
+    var isEditing = false {
+        didSet {
+            if isEditing {
+                deleteButton.isHidden = false
+                startButton.isEnabled = false
+            } else {
+                deleteButton.isHidden = true
+                startButton.isEnabled = true
+            }
+        }
+    }
+    var deleteButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+        button.layer.cornerRadius = 0.5 * button.bounds.size.width
+        button.clipsToBounds = true
+        button.setImage(UIImage(systemName: "minus.circle.fill"), for: .normal)
+        button.tintColor = .red
+        button.isHidden = true
+        return button
+    }()
+
     var taskTimer = TaskTimer()
     var model: Task?
     weak var delegate: TaskCellDelegate?
@@ -27,7 +48,7 @@ class CollectionViewCell: UICollectionViewCell, TaskTimerDelegate {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var startButton: UIButton!
     
     // MARK: Initialization Methods
     
@@ -36,8 +57,10 @@ class CollectionViewCell: UICollectionViewCell, TaskTimerDelegate {
 
         taskTimer.delegate = self
         
-        button.tintColor = ColorScheme.playButton
+        startButton.tintColor = ColorScheme.playButton
         contentView.layer.cornerRadius = 15.0
+        
+        contentView.addSubview(deleteButton)
     }
     
     override func layoutSubviews() {
@@ -65,6 +88,16 @@ class CollectionViewCell: UICollectionViewCell, TaskTimerDelegate {
         layer.masksToBounds = false
     }
     
+    private func addMinusButton() {
+        let button = UIButton(type: .custom)
+        button.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+        button.layer.cornerRadius = 0.5 * button.bounds.size.width
+        button.clipsToBounds = true
+        button.setImage(UIImage(systemName: "minus.circle.fill"), for: .normal)
+        button.tintColor = .red
+        contentView.addSubview(button)
+    }
+    
     func configModel(taskModel: Task) {
         model = taskModel
         
@@ -72,7 +105,7 @@ class CollectionViewCell: UICollectionViewCell, TaskTimerDelegate {
         descriptionText = model?.description
     }
     
-    // MARK: IB Actions
+    // MARK: Actions
     
     @IBAction func startTimer(_ sender: Any) {
         if !taskTimer.isRunning {
@@ -89,18 +122,18 @@ class CollectionViewCell: UICollectionViewCell, TaskTimerDelegate {
     }
     
     func didStartRunning() {
-        button.setTitle("Stop", for: .normal)
-        button.setImage(UIImage(systemName: "pause.fill"), for: .normal)
-        button.tintColor = ColorScheme.pauseButton
+        startButton.setTitle("Stop", for: .normal)
+        startButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+        startButton.tintColor = ColorScheme.pauseButton
     }
     
     func didStopRunning(taskEntry: TaskEntry) {
         model?.taskEntries.append(taskEntry)
         self.delegate?.saveModel(for: self, model: model ?? Task(name: "Unknown", description: ""))
         
-        button.setTitle("Start", for: .normal)
-        button.setImage(UIImage(systemName: "play.fill"), for: .normal)
-        button.tintColor = ColorScheme.playButton
+        startButton.setTitle("Start", for: .normal)
+        startButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+        startButton.tintColor = ColorScheme.playButton
     }
 }
 

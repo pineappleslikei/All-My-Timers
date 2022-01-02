@@ -72,8 +72,8 @@
                 </constraints>
             </collectionViewCellContentView>
             <connections>
-                <outlet property="button" destination="mV9-eh-gGF" id="LVT-B7-yuc"/>
                 <outlet property="descriptionLabel" destination="Rfb-7Z-vyA" id="Oho-QS-ITF"/>
+                <outlet property="startButton" destination="mV9-eh-gGF" id="LVT-B7-yuc"/>
                 <outlet property="timeLabel" destination="WRR-2Y-ofP" id="a0I-0L-wdl"/>
                 <outlet property="titleLabel" destination="3ry-Ip-E8P" id="iO5-tP-txk"/>
             </connections>
