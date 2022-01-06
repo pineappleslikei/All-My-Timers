@@ -68,6 +68,10 @@ class CollectionViewController: UICollectionViewController, TaskCellDelegate {
         present(ac, animated: true)
     }
     
+//    @objc private func didTapAdd() {
+//        showDetailScreen()
+//    }
+    
     private func insertCellAtTop(name: String, description: String) {
         tasks.insert(Task(name: name, description: description), at: 0)
         saveUserData()
@@ -79,6 +83,29 @@ class CollectionViewController: UICollectionViewController, TaskCellDelegate {
         tasks.remove(at: indexPath.row)
         collectionView.deleteItems(at: [indexPath])
         saveUserData()
+    }
+    
+    private func updateCell(at indexPath: IndexPath) {
+        collectionView.reloadItems(at: [indexPath])
+        saveUserData()
+    }
+    
+    private func showDetailScreen(for task: Task? = nil, update: @escaping () -> Void) {
+        let vc = DetailViewController(style: .plain)
+        if let task = task {
+            vc.task = task
+        }
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .pageSheet
+        nav.modalTransitionStyle = .coverVertical
+        present(nav, animated: true) {
+            update()
+        }
+        
+    }
+    
+    @objc func didFinishEditingTask(sender: Any) {
+        
     }
     
     // MARK: User Default CRUD
@@ -120,6 +147,7 @@ class CollectionViewController: UICollectionViewController, TaskCellDelegate {
         cell.configModel(taskModel: task)
         cell.isEditing = isEditing
         cell.deleteButton.addTarget(self, action: #selector(didTapMinusButton), for: .touchUpInside)
+        cell.editButton.addTarget(self, action: #selector(didTapEditTaskButton), for: .touchUpInside)
         cell.delegate = self
         
         return cell
@@ -141,7 +169,17 @@ class CollectionViewController: UICollectionViewController, TaskCellDelegate {
         if let indexPath = indexPath {
             deleteCell(from: indexPath)
         }
-        
+    }
+    
+    @objc func didTapEditTaskButton(sender: UIButton) {
+        let indexPath = collectionView.indexPath(for: sender.superview?.superview as! CollectionViewCell)
+        if let indexPath = indexPath {
+            let data = tasks[indexPath.row]
+            showDetailScreen(for: data) {
+                self.isEditing = false
+                self.updateCell(at: indexPath)
+            }
+        }
     }
 
 }

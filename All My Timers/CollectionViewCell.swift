@@ -23,24 +23,20 @@ class CollectionViewCell: UICollectionViewCell, TaskTimerDelegate {
         didSet {
             if isEditing {
                 deleteButton.isHidden = false
+                editButton.isHidden = false
                 startButton.isEnabled = false
             } else {
                 deleteButton.isHidden = true
+                editButton.isHidden = true
                 startButton.isEnabled = true
             }
         }
     }
-    var deleteButton: UIButton = {
-        let button = UIButton(type: .custom)
-        button.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-        button.layer.cornerRadius = 0.5 * button.bounds.size.width
-        button.clipsToBounds = true
-        button.setImage(UIImage(systemName: "minus.circle.fill"), for: .normal)
-        button.tintColor = .red
-        button.isHidden = true
-        return button
-    }()
-
+    
+    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var editButton: UIButton!
+    
+    
     var taskTimer = TaskTimer()
     var model: Task?
     weak var delegate: TaskCellDelegate?
@@ -60,7 +56,8 @@ class CollectionViewCell: UICollectionViewCell, TaskTimerDelegate {
         startButton.tintColor = ColorScheme.playButton
         contentView.layer.cornerRadius = 15.0
         
-        contentView.addSubview(deleteButton)
+//        addMinusButton()
+//        addGearButton()
     }
     
     override func layoutSubviews() {
@@ -88,15 +85,29 @@ class CollectionViewCell: UICollectionViewCell, TaskTimerDelegate {
         layer.masksToBounds = false
     }
     
-    private func addMinusButton() {
-        let button = UIButton(type: .custom)
-        button.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-        button.layer.cornerRadius = 0.5 * button.bounds.size.width
-        button.clipsToBounds = true
-        button.setImage(UIImage(systemName: "minus.circle.fill"), for: .normal)
-        button.tintColor = .red
-        contentView.addSubview(button)
-    }
+//    private func addMinusButton() {
+//        let button = UIButton(type: .custom)
+//        button.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+//        button.layer.cornerRadius = 0.5 * button.bounds.size.width
+//        button.clipsToBounds = true
+//        button.setImage(UIImage(systemName: "minus.circle.fill"), for: .normal)
+//        button.tintColor = .red
+//        button.isHidden = true
+//        deleteButton = button
+//        contentView.addSubview(deleteButton)
+//    }
+//
+//    private func addGearButton() {
+//        let button = UIButton(type: .custom)
+//        button.frame = CGRect(x: contentView.bounds.maxX - 60, y: 0, width: 40, height: 40)
+//        button.layer.cornerRadius = 0.5 * button.bounds.size.width
+//        button.clipsToBounds = true
+//        button.setImage(UIImage(systemName: "gearshape.fill"), for: .normal)
+//        button.tintColor = .gray
+//        button.isHidden = true
+//        editButton = button
+//        contentView.addSubview(editButton)
+//    }
     
     func configModel(taskModel: Task) {
         model = taskModel

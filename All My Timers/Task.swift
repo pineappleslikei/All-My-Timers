@@ -10,11 +10,13 @@ import Foundation
 class Task: Codable {
     var name: String
     var description: String
+    var color: String
     var taskEntries = [TaskEntry]()
     
     init(name: String, description: String) {
         self.name = name
         self.description = description
+        self.color = "Not yet"
     }
 }
 

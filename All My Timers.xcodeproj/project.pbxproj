@@ -14,6 +14,9 @@
 		5B0308102772C3B7001C7DAD /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B03080F2772C3B7001C7DAD /* CollectionViewCell.swift */; };
 		5B0308122772D05D001C7DAD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0308112772D05D001C7DAD /* Extensions.swift */; };
 		5B10CFFD277524F200C9D748 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B10CFFC277524F200C9D748 /* Task.swift */; };
+		5B80B60927816CA20058BBF3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B80B60727816CA20058BBF3 /* DetailViewController.swift */; };
+		5BADDB82278699B00042849F /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BADDB81278699B00042849F /* DetailTableViewCell.xib */; };
+		5BADDB8427869AF60042849F /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BADDB8327869AF60042849F /* DetailTableViewCell.swift */; };
 		5BD663FD277918DB00C01C20 /* TaskTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD663FC277918DB00C01C20 /* TaskTimer.swift */; };
 		AB1535BD276AE34100BB66FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1535BC276AE34100BB66FF /* AppDelegate.swift */; };
 		AB1535BF276AE34100BB66FF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1535BE276AE34100BB66FF /* SceneDelegate.swift */; };
@@ -31,6 +34,9 @@
 		5B03080F2772C3B7001C7DAD /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		5B0308112772D05D001C7DAD /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5B10CFFC277524F200C9D748 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		5B80B60727816CA20058BBF3 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		5BADDB81278699B00042849F /* DetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
+		5BADDB8327869AF60042849F /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		5BD663FC277918DB00C01C20 /* TaskTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTimer.swift; sourceTree = "<group>"; };
 		AB1535B9276AE34100BB66FF /* All My Timers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "All My Timers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB1535BC276AE34100BB66FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,8 +84,11 @@
 				AB1535C2276AE34100BB66FF /* Main.storyboard */,
 				5B0308092772B4CD001C7DAD /* ColumnFlowLayout.swift */,
 				5B0308072772B1FA001C7DAD /* CollectionViewController.swift */,
+				5B80B60727816CA20058BBF3 /* DetailViewController.swift */,
 				5BD663FC277918DB00C01C20 /* TaskTimer.swift */,
 				5B10CFFC277524F200C9D748 /* Task.swift */,
+				5BADDB81278699B00042849F /* DetailTableViewCell.xib */,
+				5BADDB8327869AF60042849F /* DetailTableViewCell.swift */,
 				5B03080B2772BAE0001C7DAD /* CollectionViewCell.xib */,
 				5B03080F2772C3B7001C7DAD /* CollectionViewCell.swift */,
 				5B0308112772D05D001C7DAD /* Extensions.swift */,
@@ -149,6 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB1535C9276AE34200BB66FF /* LaunchScreen.storyboard in Resources */,
+				5BADDB82278699B00042849F /* DetailTableViewCell.xib in Resources */,
 				AB1535C6276AE34200BB66FF /* Assets.xcassets in Resources */,
 				AB1535C4276AE34100BB66FF /* Main.storyboard in Resources */,
 				5B03080C2772BAE0001C7DAD /* CollectionViewCell.xib in Resources */,
@@ -162,11 +172,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B80B60927816CA20058BBF3 /* DetailViewController.swift in Sources */,
 				5B0308102772C3B7001C7DAD /* CollectionViewCell.swift in Sources */,
 				AB1535D1276AE48000BB66FF /* ReportViewController.swift in Sources */,
 				AB1535BD276AE34100BB66FF /* AppDelegate.swift in Sources */,
 				5B0308082772B1FA001C7DAD /* CollectionViewController.swift in Sources */,
 				5BD663FD277918DB00C01C20 /* TaskTimer.swift in Sources */,
+				5BADDB8427869AF60042849F /* DetailTableViewCell.swift in Sources */,
 				5B03080A2772B4CD001C7DAD /* ColumnFlowLayout.swift in Sources */,
 				AB1535BF276AE34100BB66FF /* SceneDelegate.swift in Sources */,
 				5B0308122772D05D001C7DAD /* Extensions.swift in Sources */,
